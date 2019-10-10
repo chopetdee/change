@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import Change from './Change';
 import './App.css';
+import { setTimeout } from 'timers';
 
 function App() {
+  const [input, setInput] = useState("0");
+  // useEffect(() => {  // un-comment to run backward test
+  //   setTimeout(()=>{
+  //     const ran  =  Math.floor(Math.random()*(10000000000000000-100)+100)+""+Math.floor(Math.random()*(10000000000000000-100)+100)/100
+  //     setInput(ran)
+  //   }, 100)
+  // }, [input])
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2>Change money!</h2>
       </header>
+        <p>Enter your money.</p>
+        <input onChange={(e)=>setInput(e.currentTarget.value)}/>
+        <p>
+          <Change money={input}/>
+        </p>
     </div>
   );
 }
