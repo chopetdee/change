@@ -20,6 +20,7 @@ const Change = props => {
     let counter = 0 // for backward check
     if (props.money.toString().match(/^\d*\.?\d{0,2}0*$/gm)) { // check input
         let inp = multi100ToStr(props.money)
+
         moneys.forEach((elt, i) => {  //to get number of each bill
             let count = 0
             if (parseInt(inp) >= elt[0]) {
@@ -35,6 +36,7 @@ const Change = props => {
                     ? back.push(`${count} ${elt[2]}`)
                     : back.push(`${count} ${elt[1]}`)
             }
+            
         })
 
         // backward check
